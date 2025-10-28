@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LB Mokoena Attorneys | Home</title>
+  <style>
+    :root {
+      --gold: #C6A74B;
+      --dark: #222;
+      --muted: #6b7280;
+      --bg: #f8f8f8;
+      --card: #ffffff;
+      --radius: 14px;
+      --maxW: 1200px;
+      --accent: var(--gold);
+      --transition: 0.4s ease-in-out;
+    }
+
+    /* 🌙 Dark Mode Variables */
+    [data-theme="dark"] {
+      --bg: #121212;
+      --dark: #fff;
+      --muted: #9ca3af;
+      --card: #1E1E1E;
+      --accent: #C6A74B;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    html, body { height:100%; transition: background var(--transition), color var(--transition); }
+    body {
+      font-family: 'Inter', system-ui, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      background: var(--bg);
+      color: var(--dark);
+      line-height:1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: var(--maxW); margin: 0 auto; padding: 20px; }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 20px 0;
+      position: relative;
+      animation: fadeSlideDown 0.8s ease forwards;
+    }
+
+    @keyframes fadeSlideDown {
+      0% { opacity:0; transform: translateY(-20px);}
+      100% { opacity:1; transform: translateY(0);}
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+    }
+
+    .logo {
+      width: 64px; height: 64px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--gold), #b28f3f);
+      display: grid; place-items: center;
+      color: white;
+      font-weight: 800;
+      font-size: 22px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .brand h1 { font-size: 22px; margin-bottom: 4px; }
+    .brand .muted { font-size: 13px; color: var(--muted); }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+
+    .nav a:hover, .nav a.active {
+      color: var(--dark);
+      background: rgba(198, 167, 75, 0.1);
+    }
+
+    .cta {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(198, 167, 75, 0.2);
+      transition: var(--transition);
+    }
+
+    .cta:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 22px rgba(198, 167, 75, 0.3);
+    }
+
+    /* 🌗 Dark Mode Toggle */
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 22px;
+      color: var(--muted);
+      margin-left: 10px;
+      transition: color var(--transition), transform var(--transition);
+    }
+
+    .theme-toggle:hover {
+      color: var(--accent);
+      transform: scale(1.2);
+    }
+
+    /* Mobile Dropdown */
+    @media (max-width: 900px) {
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        background: var(--card);
+        padding: 15px 20px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        border-radius: var(--radius);
+        z-index: 100;
+      }
+
+      .nav.open {
+        display: flex;
+        animation: fadeSlideDown 0.4s ease forwards;
+      }
+
+      .cta {
+        display: none;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      margin-top: 28px;
+      background-image: url('../assets/1.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius);
+      overflow: hidden;
+      color: white;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero .overlay {
+      width: 100%;
+      padding: 60px 40px;
+      background: linear-gradient(180deg, rgba(34,34,34,0.5), rgba(34,34,34,0.1));
+      border-radius: var(--radius);
+      opacity:0;
+      transform: translateY(20px);
+      animation: fadeSlideUp 1s ease forwards 0.3s;
+    }
+
+    @keyframes fadeSlideUp { to { opacity:1; transform: translateY(0); } }
+
+    .hero h2 { font-size: 36px; margin-bottom: 12px; }
+    .hero p { margin-bottom: 18px; font-size: 16px; color: rgba(255,255,255,0.9); }
+
+    /* Grid & Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background var(--transition);
+      opacity:0;
+      transform: translateY(20px);
+      animation: cardFadeIn 0.8s forwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+    .card:nth-child(4) { animation-delay: 0.8s; }
+
+    @keyframes cardFadeIn { to { opacity:1; transform: translateY(0); } }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
+    h3 { margin-bottom: 12px; font-size: 20px; }
+    .muted { color: var(--muted); font-size: 15px; }
+
+    /* Footer */
+    footer {
+      margin-top: 40px;
+      padding: 28px 20px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(198,167,75,0.08), transparent);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--muted);
+      opacity:0;
+      animation: fadeIn 1s forwards 1s;
+    }
+
+    @keyframes fadeIn { to { opacity:1; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand" id="brandToggle">
+        <div class="logo">LB</div>
+        <div>
+          <h1>LB Mokoena Attorneys</h1>
+          <div class="muted">Attorneys & Legal Advisors</div>
+        </div>
+      </div>
+      <nav class="nav" id="mainNav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="team.html">Team</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+        <a class="cta" href="contact.html">Free Consultation</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="overlay">
+        <h2>Your Justice. Our Priority.</h2>
+        <p>Professional legal solutions tailored for individuals and businesses.</p>
+        <p><a class="cta" href="contact.html">Free Consultation</a></p>
+      </div>
+    </section>
+
+    <div class="grid">
+      <div class="card">
+        <h3>About Us</h3>
+        <p class="muted">LB Mokoena Attorneys is a modern law firm offering practical legal solutions to startups, businesses, and families. We focus on clear advice, transparent fees, and personal attention.</p>
+      </div>
+      <div class="card">
+        <h3>Practice Areas</h3>
+        <ul class="muted">
+          <li>Commercial Law</li>
+          <li>Property & Conveyancing</li>
+          <li>Employment Law</li>
+          <li>Family Law</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Why Choose Us</h3>
+        <p class="muted">We combine legal expertise with a client-centered approach. You’ll get practical guidance, fixed-fee options for common matters, and priority communication.</p>
+      </div>
+      <div class="card">
+        <h3>Office</h3>
+        <p class="muted">
+          Brakpan, Gauteng<br>
+          Gauteng<br>
+          Email: info@lbmokoenaattorneys.co.za<br>
+          Phone: 012 345 6789
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <div>
+        <div style="font-weight:700">LB Mokoena Attorneys</div>
+        <div class="muted">© <span id="year"></span> LB Mokoena Attorneys — All rights reserved.</div>
+      </div>
+      <div>Privacy & POPIA compliant • Built with care</div>
+    </footer>
+  </div>
+
+  <script>
+    // 🕒 Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 📱 Dropdown toggle on logo click (mobile only)
+    const brandToggle = document.getElementById('brandToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    brandToggle.addEventListener('click', () => {
+      if (window.innerWidth <= 900) mainNav.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 900 && !brandToggle.contains(e.target) && !mainNav.contains(e.target)) {
+        mainNav.classList.remove('open');
+      }
+    });
+
+    // 🌗 Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme) body.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = body.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+
+    themeToggle.addEventListener('click', () => {
+      const current = body.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>
